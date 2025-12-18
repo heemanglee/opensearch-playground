@@ -28,6 +28,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.opensearch.client:opensearch-java:2.20.0'
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.3'
+    implementation 'org.apache.httpcomponents.core5:httpcore5:5.3.4'
+    implementation 'org.apache.httpcomponents.core5:httpcore5-h2:5.3.4'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
