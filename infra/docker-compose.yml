@@ -3,6 +3,16 @@ services:
   opensearch-node:
     image: opensearchproject/opensearch:latest
     container_name: opensearch-learning
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        # Nori 형태소 분석기 플러그인 설치
+        if ! /usr/share/opensearch/bin/opensearch-plugin list | grep -q analysis-nori; then
+          /usr/share/opensearch/bin/opensearch-plugin install analysis-nori --batch
+        fi
+        # OpenSearch 시작
+        /usr/share/opensearch/opensearch-docker-entrypoint.sh
     environment:
       - cluster.name=opensearch-cluster
       - node.name=opensearch-node
